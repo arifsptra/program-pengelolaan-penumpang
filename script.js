@@ -1,9 +1,12 @@
 var penumpang = [];
 var tambahPenumpang = function (namaPenumpang, penumpang) {
   // jika angkot kosong
-  // tambah penumpang di awal
-  // kembalikan isi array & keluar dari function
-  // else
+  if (penumpang.length == 0) {
+    // tambah penumpang di awal
+    penumpang.push(namaPenumpang);
+    // kembalikan isi array & keluar dari function
+    return penumpang;
+  }
   // telusuri seluruh kursi dari awal
   // jika ada kursi kosong
   // tambah penumpang di kursi tersebut
