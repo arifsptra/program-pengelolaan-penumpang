@@ -2,9 +2,8 @@ var penumpang = [];
 var tambahPenumpang = function (namaPenumpang, penumpang) {
   // jika tidak ada penumpang
   if (penumpang.length == 0) {
-    // tambah penumpang di awal
+    // tambah penumpang di kursi pertama
     penumpang.push(namaPenumpang);
-    // kembalikan isi array & keluar dari function
     return penumpang;
   }
   // telusuri seluruh kursi dari awal
@@ -13,21 +12,18 @@ var tambahPenumpang = function (namaPenumpang, penumpang) {
     if (penumpang[i] == undefined) {
       // tambah penumpang di kursi tersebut
       penumpang[i] = namaPenumpang;
-      // kembalikan isi array & keluar dari function
       return penumpang;
     }
     // jika sudah ada nama yang sama
     else if (penumpang[i] == namaPenumpang) {
       // tampilkan pesan kesalahan
       console.log(namaPenumpang + " sudah naik.");
-      // kembalikan isi array & keluar dari function
       return penumpang;
     }
-    // jika seluruh kursi terisi
+    // jika seluruh kursi depan sudah terisi
     else if (i == penumpang.length - 1) {
-      // tambah penumpang di akhir array
+      // tambah penumpang di kursi terakhir
       penumpang.push(namaPenumpang);
-      // kembalikan isi array & keluar dari function
       return penumpang;
     }
   }
@@ -37,7 +33,6 @@ var hapusPenumpang = function (namaPenumpang, penumpang) {
   if (penumpang == 0) {
     // tampilkan pesan bahwa angkot kosong
     console.log("Angkot Kosong \nTidak mungkin ada penumpang yang turun");
-    // kembalikan isi array & keluar dari function
     return penumpang;
   } else {
     // telusuri seluruh kursi dari awal
@@ -46,7 +41,6 @@ var hapusPenumpang = function (namaPenumpang, penumpang) {
       if (penumpang[i] == namaPenumpang) {
         // hapus penumpang dengan mengubah namanya menjadi undefined
         penumpang[i] = undefined;
-        // kembalikan isi array & keluar dari function
         return penumpang;
       }
       // jika tidak ada nama yang sesuai
@@ -54,7 +48,6 @@ var hapusPenumpang = function (namaPenumpang, penumpang) {
       else if (i == penumpang.length - 1) {
         // tampilkan pesan kesalahan
         console.log("Maaf tidak ada penumpang yang bernama " + namaPenumpang);
-        // kembalikan isi array & keluar dari function
         return penumpang;
       }
     }
