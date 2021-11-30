@@ -40,34 +40,39 @@ function Bus(sopir, penumpang, tujuan, tarif) {
       }
     }
   };
-}
-var bus1 = new Bus(["Anang", "Bambang"], [], ["Pati", "Semarang"], 0);
-var bus2 = new Bus(["Kakang", "Mandra"], [], ["Semarang", "Surabaya"], 0);
-var bus3 = new Bus(["Jefri", "Maman"], [], ["Jakarta", "Malang"], 0);
-var bus4 = new Bus(["Putu", "Deden"], [], ["Jepara", "Rembang"], 0);
 
-// var hapusPenumpang = function (namaPenumpang, penumpang) {
-//   // jika tidak ada penumpang
-//   if (penumpang == 0) {
-//     // tampilkan pesan bahwa angkot kosong
-//     console.log("Angkot Kosong \nTidak mungkin ada penumpang yang turun");
-//     return penumpang;
-//   } else {
-//     // telusuri seluruh kursi dari awal
-//     for (i = 0; i <= penumpang.length; i++) {
-//       // jika nama penumpang sesuai
-//       if (penumpang[i] == namaPenumpang) {
-//         // hapus penumpang dengan mengubah namanya menjadi undefined
-//         penumpang[i] = undefined;
-//         return penumpang;
-//       }
-//       // jika tidak ada nama yang sesuai
-//       // penumpang[i] != namaPenumpang
-//       else if (i == penumpang.length - 1) {
-//         // tampilkan pesan kesalahan
-//         console.log("Maaf tidak ada penumpang yang bernama " + namaPenumpang);
-//         return penumpang;
-//       }
-//     }
-//   }
-// };
+  // Fitur Hapus Penumpang
+  this.hapusPenumpang = function (namaPenumpang, penumpang) {
+    // jika tidak ada penumpang
+    if (this.penumpang == 0) {
+      // tampilkan pesan bahwa angkot kosong
+      console.log("Angkot Kosong \nTidak mungkin ada penumpang yang turun");
+      return this.penumpang;
+    } else {
+      // telusuri seluruh kursi dari awal
+      for (i = 0; i <= this.penumpang.length; i++) {
+        // jika nama penumpang sesuai
+        if (this.penumpang[i] == namaPenumpang) {
+          // hapus penumpang dengan mengubah namanya menjadi undefined
+          this.penumpang[i] = undefined;
+          return this.penumpang;
+        }
+        // jika tidak ada nama yang sesuai
+        // penumpang[i] != namaPenumpang
+        else if (i == this.penumpang.length - 1) {
+          // tampilkan pesan kesalahan
+          console.log("Maaf tidak ada penumpang yang bernama " + namaPenumpang);
+          return this.penumpang;
+        }
+      }
+    }
+  };
+}
+// BUS 1 -- Sopir(Anang dan Bambang) -- Maksimal Penumpang 40 Orang -- Tujuan(Pati - Semarang) -- Tarif 100.000
+var bus1 = new Bus(["Anang", "Bambang"], [], ["Pati", "Semarang"], 0);
+// BUS 2 -- Sopir(Kakang dan Mandra) -- Maksimal Penumpang 40 Orang -- Tujuan(Semarang - Surabaya) -- Tarif 200.000
+var bus2 = new Bus(["Kakang", "Mandra"], [], ["Semarang", "Surabaya"], 0);
+// BUS 3 -- Sopir(Jefri dan Maman) -- Maksimal Penumpang 40 Orang -- Tujuan(Jakarta - Malang) -- Tarif 500.000
+var bus3 = new Bus(["Jefri", "Maman"], [], ["Jakarta", "Malang"], 0);
+// BUS 4 -- Sopir(Putu dan Deden) -- Maksimal Penumpang 40 Orang -- Tujuan(Jepara - Rembang) -- Tarif 50.000
+var bus4 = new Bus(["Putu", "Deden"], [], ["Jepara", "Rembang"], 0);
