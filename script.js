@@ -19,7 +19,7 @@ function Bus(sopir, penumpang, tujuan, tarif, uangSetoran) {
       // jika ada kursi kosong ditengah tengah
       if (this.penumpang[i] == undefined) {
         // tambah penumpang di kursi tersebut
-        this.penumpang[i] = this.namaPenumpang;
+        this.penumpang[i] = namaPenumpang;
         return this.penumpang;
       }
       // jika sudah ada nama yang sama
@@ -43,7 +43,7 @@ function Bus(sopir, penumpang, tujuan, tarif, uangSetoran) {
   };
 
   // Fitur Hapus Penumpang
-  this.hapusPenumpang = function (namaPenumpang, penumpang) {
+  this.hapusPenumpang = function (namaPenumpang, busKe) {
     // jika tidak ada penumpang
     if (this.penumpang == 0) {
       // tampilkan pesan bahwa angkot kosong
@@ -51,16 +51,26 @@ function Bus(sopir, penumpang, tujuan, tarif, uangSetoran) {
       return this.penumpang;
     } else {
       // telusuri seluruh kursi dari awal
-      for (i = 0; i <= this.penumpang.length; i++) {
+      for (j = 0; j <= this.penumpang.length; j++) {
         // jika nama penumpang sesuai
-        if (this.penumpang[i] == namaPenumpang) {
+        if (this.penumpang[j] == namaPenumpang) {
           // hapus penumpang dengan mengubah namanya menjadi undefined
-          this.penumpang[i] = undefined;
+          this.penumpang[j] = undefined;
+          // penumpang turun bayar sesuai tarif yang sudah ditentukan
+          if (busKe == bus1) {
+            this.uangSetoran += 100000;
+          } else if (busKe == bus2) {
+            this.uangSetoran += 200000;
+          } else if (busKe == bus3) {
+            this.uangSetoran += 500000;
+          } else if (busKe == bus4) {
+            this.uangSetoran += 50000;
+          }
           return this.penumpang;
         }
         // jika tidak ada nama yang sesuai
         // penumpang[i] != namaPenumpang
-        else if (i == this.penumpang.length - 1) {
+        else if (j == this.penumpang.length - 1) {
           // tampilkan pesan kesalahan
           console.log("Maaf tidak ada penumpang yang bernama " + namaPenumpang);
           return this.penumpang;
